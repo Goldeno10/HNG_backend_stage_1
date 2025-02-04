@@ -49,16 +49,53 @@ interface Params {
   num: string;
 }
 
-app.get("/number/:num", async (req: Request, res: Response) => {
-  const num: number = parseInt(req.params.num);
+// app.get("/api/classify-number", async (req: Request, res: Response) => {
+//   const num: number = parseInt(req.params.num);
+
+//   if (isNaN(num)) {
+//     const errorProperties: ErrorProperties = {
+//       number: req.params.num,
+//       error: true,
+//     };
+//     res.json(errorProperties);
+//     return;
+//   }
+
+//   const numberProperties: NumberProperties = {
+//     number: num,
+//     is_prime: isPrime(num),
+//     is_perfect: isPerfect(num),
+//     properties: [],
+//     digit_sum: digitSum(num),
+//     fun_fact: "",
+//   };
+
+//   try {
+//     const response = await axios.get(`${numbersApiUrl}${num}`);
+//     numberProperties.fun_fact = response.data;
+//   } catch (error) {
+//     numberProperties.fun_fact = "Could not fetch fun fact.";
+//   }
+
+//   numberProperties.properties = [
+//     isArmstrong(num) ? "armstrong" : "",
+//     isEven(num) ? "even" : "odd",
+//     isFibonacci(num) ? "fibonacci" : "",
+//     isPalindrome(num) ? "palindrome" : "",
+//     isPerfectCube(num) ? "perfect cube" : "",
+//     isPerfectSquare(num) ? "perfect square" : "",
+//     isPrime(num) ? "prime" : "",
+//     isPerfect(num) ? "perfect" : "",
+//   ].filter(Boolean);
+
+//   return res.json(numberProperties);
+// });
+
+app.get("/api/classify-number", async (req: Request, res: Response) => {
+  const num = Number(req.query.number);
 
   if (isNaN(num)) {
-    const errorProperties: ErrorProperties = {
-      number: req.params.num,
-      error: true,
-    };
-    res.json(errorProperties);
-    return;
+    return res.json({ number: req.query.number, error: true });
   }
 
   const numberProperties: NumberProperties = {
