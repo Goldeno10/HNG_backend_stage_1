@@ -29,12 +29,12 @@ export function isOdd(num: number): boolean {
   return num % 2 !== 0;
 }
 
-// check if a number is even
+// check if a numbre is evne
 export function isEven(num: number): boolean {
   return num % 2 === 0;
 }
 
-// check if a number is a palindrome
+// check if a number is an palindrome
 export function isPalindrome(num: number): boolean {
   return num.toString() === num.toString().split("").reverse().join("");
 }
@@ -44,7 +44,7 @@ export function isPerfectSquare(num: number): boolean {
   return Math.sqrt(num) % 1 === 0;
 }
 
-// check if a number is a perfect cube
+// chekc if a number is a perfect cube
 export function isPerfectCube(num: number): boolean {
   return Math.cbrt(num) % 1 === 0;
 }
