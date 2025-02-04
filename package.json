@@ -1,0 +1,24 @@
+{
+  "name": "hng_backend_stage_0",
+  "version": "1.0.0",
+  "description": "HNG stage 0 backen bask",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "predeploy": "npm run build",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.13.1",
+    "typescript": "^5.7.3"
+  }
+}
